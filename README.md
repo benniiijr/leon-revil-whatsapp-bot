@@ -1,105 +1,101 @@
 # Leon Revil
 
-Esse é um projeto pessoal que desenvolvi para estudar, praticar e apresentar um pouco do que venho aprendendo em **Java e Node.js**. O Leon Revil é um bot para WhatsApp que usa Node.js para fazer a conexão e uma ponte com Java para processar comandos e algumas funções de mídia.
+Esse é um projeto pessoal meu. Fiz o Leon Revil para praticar Java e Node.js e mostrar um pouco do que venho aprendendo. Ele é um bot de WhatsApp que usa Node.js para se conectar e Java para cuidar de comandos e algumas funções de mídia.
 
-A ideia deste repositório é apresentar meu projeto para quem quiser **instalar e testar**, conhecer o funcionamento ou baixar o código para **estudar e executar localmente**. Se você quiser desenvolver uma versão própria, mantenha seu trabalho em uma cópia e em um repositório seus. É um projeto independente, feito para aprendizado e apresentação — não é um produto oficial nem uma solução que eu esteja prometendo como pronta para uso em produção.
+Deixei o código aqui para quem quiser conhecer o projeto, baixar e testar. Ainda estou aprendendo, então pode ter bugs e coisas que precisam melhorar. Não é um produto oficial nem algo que eu esteja dizendo que está pronto para uso profissional.
 
 ## O que ele faz
 
-- Conecta ao WhatsApp por meio de uma integração não oficial.
+- Conecta ao WhatsApp usando uma biblioteca não oficial.
 - Responde a comandos como `/menu` e `/info`.
-- Tem funções para converter imagens e vídeos em figurinhas e figurinhas em mídia.
-- Inclui comandos de administração de grupos, como remoção de participante, regras, boas-vindas e controle de links, conforme as permissões e configurações do grupo.
+- Converte imagens e vídeos em figurinhas e também faz algumas conversões de mídia.
+- Tem comandos para administrar grupos, como boas-vindas, regras e controle de links. Alguns dependem das permissões do bot no grupo.
 
-Alguns comandos administrativos só funcionam quando o Leon tem as permissões necessárias no grupo.
+## Antes de instalar: use uma máquina virtual, se puder
 
-## Antes de começar: recomendo usar uma máquina virtual
+Eu recomendo testar em uma máquina virtual (VM), em vez de começar direto no seu Windows principal. A VM funciona como um computador separado dentro do seu PC e ajuda a manter os testes mais isolados.
 
-Como este é um projeto pessoal de teste e usa uma integração não oficial com o WhatsApp, **recomendo testar em uma máquina virtual (VM)** em vez de começar pelo seu Windows principal.
+### Como preparar a máquina virtual
 
-Uma VM funciona como um computador separado dentro do seu computador. Assim, você pode testar o instalador em um ambiente isolado e criar um ponto de restauração antes de começar.
+1. Instale um programa de virtualização, como o [VirtualBox](https://www.virtualbox.org/).
+2. Crie uma máquina virtual com Windows 10 ou 11 de 64 bits. Se puder, use o Windows 11.
+3. Separe pelo menos 2 núcleos de CPU, 4 GB de RAM e 64 GB de disco virtual. Se seu PC permitir, use 8 GB de RAM.
+4. Configure a rede para a máquina virtual acessar a internet. No VirtualBox, o modo NAT costuma servir.
+5. Instale o Windows na VM e confira se a internet está funcionando.
+6. Antes de instalar o Leon, crie um snapshot da máquina virtual. Assim, fica mais fácil voltar ao estado anterior se precisar.
 
-### Preparar a máquina virtual
+Para conectar o WhatsApp, use uma conta que você controla. Se puder, use uma conta ou número separado para os testes. A VM ajuda a isolar o ambiente, mas não elimina os riscos de usar uma integração não oficial.
 
-1. Instale um virtualizador, como o [VirtualBox](https://www.virtualbox.org/), ou use uma solução de virtualização que já tenha disponível.
-2. Crie uma máquina virtual com Windows 10 ou 11 de **64 bits**. Se possível, prefira Windows 11 e use uma instalação/licença válida.
-3. Como ponto de partida, reserve **2 núcleos de CPU, 4 GB de RAM (8 GB se puder) e pelo menos 64 GB de disco virtual**. Ajuste conforme os recursos do seu computador.
-4. Configure a rede da VM para ter acesso à internet. No VirtualBox, o modo **NAT** costuma ser suficiente para esse teste.
-5. Instale o Windows, conclua a configuração inicial e confirme que a internet está funcionando.
-6. Antes de instalar o Leon, crie um **snapshot/ponto de restauração** da VM. Se quiser recomeçar os testes, poderá voltar a esse estado.
+## Opção 1: instalar e testar
 
-Para autenticar o WhatsApp, use somente uma conta que você controla. Se possível, use uma conta ou número separado para testes. A integração não oficial pode parar de funcionar ou estar sujeita a restrições da plataforma; a máquina virtual não elimina esses riscos.
-
-## Opção 1 — Instalar e testar o Leon Revil
-
-Esta é a opção mais simples. O instalador completo já inclui os componentes necessários para executar o projeto, como Node.js, Java, dependências do Node e ferramentas de mídia. **Você não precisa instalar Node.js, Java, FFmpeg ou ImageMagick separadamente para usar essa versão do instalador.**
+Esse é o jeito mais simples. O instalador já vem com Node.js, Java, dependências e ferramentas de mídia. Você não precisa instalar tudo isso separadamente.
 
 ### Passo a passo
 
-1. Abra a página de [Releases do Leon Revil](https://github.com/benniiijr/leon-revil-whatsapp-bot/releases).
-2. Na versão desejada, baixe o arquivo **`Leon-Revil-Setup-1.0.0-FULL.exe`**. Você também pode [baixar diretamente o instalador v1.0.0](https://github.com/benniiijr/leon-revil-whatsapp-bot/releases/download/v1.0.0/Leon-Revil-Setup-1.0.0-FULL.exe).
-3. Aguarde o download terminar. Se o Windows mostrar um aviso de aplicativo não reconhecido, lembre-se de que este instalador não possui assinatura digital. Confira se o arquivo veio do Release oficial e não desative o antivírus para executá-lo.
-4. Abra o instalador e siga as etapas apresentadas. Por padrão, ele instala o Leon no perfil do usuário, em `%LOCALAPPDATA%\Programs\Leon Revil`, sem precisar instalar os runtimes manualmente.
-5. Se quiser, marque a opção para criar um atalho na área de trabalho. O instalador também cria um atalho no menu Iniciar.
-6. Ao terminar, deixe marcada a opção para iniciar o Leon ou abra o atalho **Leon Revil** no menu Iniciar.
-7. Uma janela de terminal será aberta. Na primeira execução, o bot deve tentar conectar ao WhatsApp e exibir um **QR Code** no terminal.
-8. No celular que contém a conta que será usada pelo bot, abra o WhatsApp e entre em **Configurações (ou menu) → Dispositivos conectados → Conectar dispositivo**. A nomenclatura pode variar um pouco conforme o aparelho.
-9. Use o celular para escanear o QR Code que aparece na janela do Leon. Não compartilhe esse QR Code nem os arquivos de autenticação.
-10. Aguarde a conexão. Quando der certo, o terminal deverá mostrar uma mensagem semelhante a **`Leon Revil conectado ao WhatsApp.`**.
-11. Para testar, envie **`/menu`** ou **`/info`** para a conta do bot a partir de outra conversa ou conta de teste. O comando `/menu` apresenta os comandos disponíveis. Teste primeiro em uma conversa ou grupo de teste; ações administrativas devem ser experimentadas somente em um grupo seu, onde você entende as permissões envolvidas.
+1. Entre na página de [Releases do Leon Revil](https://github.com/benniiijr/leon-revil-whatsapp-bot/releases).
+2. Baixe o arquivo **`Leon-Revil-Setup-1.0.0-FULL.exe`**. Se preferir, [clique aqui para baixar a versão 1.0.0](https://github.com/benniiijr/leon-revil-whatsapp-bot/releases/download/v1.0.0/Leon-Revil-Setup-1.0.0-FULL.exe).
+3. O Windows pode mostrar um aviso porque o instalador não tem assinatura digital. Confira se baixou o arquivo da página oficial do projeto e não desative o antivírus para instalar.
+4. Abra o instalador e siga as instruções. O local padrão é `%LOCALAPPDATA%\Programs\Leon Revil`.
+5. Se quiser, marque a opção para criar um atalho na área de trabalho. Também será criado um atalho no menu Iniciar.
+6. No fim da instalação, abra o Leon pelo atalho.
+7. Uma janela de terminal vai aparecer. Na primeira vez, o Leon deve mostrar um QR Code para conectar ao WhatsApp.
+8. No celular da conta que você vai usar, abra o WhatsApp e entre em **Dispositivos conectados → Conectar dispositivo**. O nome pode mudar um pouco dependendo do celular.
+9. Escaneie o QR Code que aparece no terminal. Não compartilhe esse código com ninguém.
+10. Espere a conexão. Quando der certo, deve aparecer uma mensagem parecida com `Leon Revil conectado ao WhatsApp.`.
+11. Para testar, mande `/menu` ou `/info` para o bot usando outra conversa ou conta. Faça os primeiros testes em uma conversa ou grupo de teste. Teste os comandos de administração somente em um grupo seu.
 
-O instalador não precisa baixar os runtimes durante a instalação, mas **o bot precisa de internet enquanto estiver em execução** para se conectar ao WhatsApp.
+O instalador não precisa baixar os programas durante a instalação, mas o Leon precisa de internet para se conectar ao WhatsApp enquanto estiver funcionando.
 
-### Encerrar e abrir novamente
+### Como fechar e abrir de novo
 
-- Para encerrar o processo, volte à janela do terminal e pressione **Ctrl+C**.
-- Para iniciar de novo, abra o atalho **Leon Revil**.
-- A autenticação fica armazenada localmente na pasta `whatsapp-bridge\auth-leon`, dentro da instalação. Ela não deve ser publicada nem enviada a outras pessoas.
-- Não compartilhe a pasta de autenticação. Se for desinstalar, confira antes se precisa manter sua sessão local.
+- Para fechar o bot, vá até a janela do terminal e pressione **Ctrl+C**.
+- Para abrir novamente, use o atalho **Leon Revil**.
+- Os dados de conexão ficam na pasta `whatsapp-bridge\auth-leon), dentro da instalação. Não compartilhe essa pasta nem envie para outras pessoas.
+- Antes de desinstalar, confira se precisa guardar alguma coisa da sua sessão.
 
-### Se não funcionar
+### Se der algum problema
 
-- **O QR Code não aparece:** confira se a VM tem internet e aguarde alguns instantes. Se continuar sem aparecer, feche o terminal, abra o Leon novamente e leia a mensagem de erro exibida.
-- **O celular não conecta:** reinicie o Leon para gerar um QR Code novo e tente escanear novamente. Não publique imagens do QR Code.
-- **O bot conecta, mas não responde:** teste `/menu` e `/info` a partir de outra conta ou conversa e confira o terminal em busca de erros.
-- **Comandos administrativos falham:** verifique se a conta do Leon e quem executa o comando têm as permissões necessárias no grupo.
-- **Recursos de mídia falham:** envie arquivos de teste menores e confira as mensagens do terminal. Nem todo arquivo de imagem ou vídeo é necessariamente compatível.
+- **O QR Code não aparece:** confira a internet da VM e tente abrir o Leon de novo.
+- **O celular não conecta:** reinicie o Leon para gerar outro QR Code e tente novamente.
+- **O bot conecta, mas não responde:** teste `/menu` e `/info` usando outra conta e veja se aparece algum erro no terminal.
+- **Os comandos de grupo não funcionam:** confira as permissões do bot e de quem está usando o comando.
+- **As conversões de mídia falham:** tente com um arquivo menor e confira as mensagens do terminal.
 
-## Opção 2 — Baixar o código para estudar ou executar localmente
+## Opção 2: baixar o código para estudar
 
-Se a ideia for estudar a implementação, modificar o comportamento ou versionar suas alterações, você pode baixar o código-fonte. Nesse caminho, os runtimes e as ferramentas que vêm dentro do instalador completo **não são instalados automaticamente**.
+Se você quiser ver como o projeto foi feito e executar o código por conta própria, também pode baixar os arquivos. Nesse caso, os programas que vêm dentro do instalador não serão instalados automaticamente.
 
-### Requisitos para executar pelo código
+### O que precisa instalar
 
 - Windows 10 ou 11 de 64 bits.
-- Git (para clonar e versionar o repositório).
+- Git.
 - Node.js 24.
-- JDK 21, incluindo `java` e `javac`.
-- FFmpeg, FFprobe e ImageMagick disponíveis no `PATH` do Windows para os recursos de mídia.
+- JDK 21, com `java` e `javac`.
+- FFmpeg, FFprobe e ImageMagick no PATH do Windows, para as funções de mídia.
 
-### Baixar o projeto
+### Baixar o código
 
-Você pode clicar em **Code → Download ZIP** nesta página e extrair o arquivo, ou usar o Git:
+Você pode clicar em **Code → Download ZIP** aqui no GitHub e extrair o arquivo, ou abrir o PowerShell e executar:
 
 ```powershell
 git clone https://github.com/benniiijr/leon-revil-whatsapp-bot.git
 cd leon-revil-whatsapp-bot
 ```
 
-### Instalar dependências e compilar o Java
+### Compilar o Java e instalar as dependências
 
-No PowerShell, a partir da pasta raiz do projeto, execute:
+Na pasta principal do projeto, execute no PowerShell:
 
 ```powershell
-# Criar a pasta que receberá os arquivos compilados
+# Criar a pasta dos arquivos compilados
 New-Item -ItemType Directory -Force .\build\classes
 
-# Compilar as classes Java usando o JDK 21
+# Compilar o código Java usando o JDK 21
 $fontes = Get-ChildItem .\src\*.java | ForEach-Object { $_.FullName }
 javac --release 21 -encoding UTF-8 -d .\build\classes $fontes
 ```
 
-Depois instale as dependências do Node.js e inicie a ponte com o WhatsApp:
+Depois, instale as dependências do Node.js e inicie o bot:
 
 ```powershell
 cd .\whatsapp-bridge
@@ -107,27 +103,27 @@ npm ci
 node index.js
 ```
 
-Na primeira execução, siga o mesmo procedimento de autenticação pelo QR Code explicado na Opção 1. Mantenha o terminal aberto enquanto estiver usando o bot; fechar o terminal encerra o processo.
+Na primeira execução, siga os passos do QR Code explicados na Opção 1. Deixe o terminal aberto enquanto estiver usando o bot. Se fechar a janela, o processo será encerrado.
 
-### Manter seus estudos separados deste repositório
+### Sobre suas próprias alterações
 
-Este repositório é a apresentação do meu projeto pessoal. As instruções acima servem para baixar o código, estudar e executar uma cópia local; não é necessário enviar alterações para cá.
+Esse repositório é para apresentar o meu projeto. Você pode baixar o código e estudar como ele funciona, mas não precisa enviar alterações para cá.
 
-Se decidir transformar o código em um projeto seu, faça isso em uma cópia própria e mantenha o desenvolvimento no seu próprio repositório.
+Se quiser fazer sua própria versão, trabalhe em uma cópia sua e guarde o código no seu próprio repositório.
 
-**Não publique** a pasta `whatsapp-bridge\\auth-leon`, QR Codes, credenciais, arquivos de sessão, chaves, tokens, logs pessoais ou dados de conversas. A pasta de autenticação é local e deve continuar privada. O `.gitignore` do projeto já exclui alguns arquivos gerados, mas sempre confira os arquivos antes de compartilhar sua cópia.
+Não compartilhe a pasta `whatsapp-bridge\auth-leon`, QR Codes, senhas, tokens, arquivos de sessão ou dados de conversas. Antes de compartilhar sua cópia, confira também quais arquivos estão incluídos.
 
-## Estrutura principal do projeto
+## Pastas principais
 
-- `src/`: código Java do Leon, personalidade e processamento de mídia.
-- `whatsapp-bridge/`: conexão com o WhatsApp e ponte Node.js ↔ Java.
-- `whatsapp-bridge/services/`: serviços de mensagens, mídia e integração.
-- `build/classes/`: classes Java compiladas localmente; são geradas durante a compilação.
+- `src/`: código Java do Leon.
+- `whatsapp-bridge/`: conexão com o WhatsApp e integração com Java.
+- `whatsapp-bridge/services/`: serviços usados pelo bot.
+- `build/classes/`: arquivos Java gerados durante a compilação.
 
 ## Avisos
 
-- Este é meu projeto pessoal de estudo e apresentação. Ainda pode conter erros e mudanças; use por sua conta e risco.
-- O projeto não é afiliado, patrocinado nem oficialmente endossado pelo WhatsApp ou pela Meta.
-- A conexão utiliza uma biblioteca não oficial e pode sofrer alterações, interrupções ou restrições impostas pela plataforma. Respeite os termos aplicáveis e use somente contas que você tem autorização para conectar.
-- O instalador inclui componentes de terceiros. Consulte os avisos e licenças distribuídos com esses componentes e os respectivos projetos oficiais.
-- O código deste repositório está disponibilizado sob a licença indicada no arquivo [LICENSE](LICENSE). Isso não substitui as licenças dos componentes de terceiros incluídos no instalador.
+- Esse é meu projeto pessoal de estudo e apresentação. Ainda estou aprendendo e ele pode ter erros.
+- O projeto não é oficial e não tem ligação com o WhatsApp ou com a Meta.
+- A conexão usa uma biblioteca não oficial e pode parar de funcionar ou sofrer restrições. Use somente uma conta que você tem autorização para conectar.
+- O instalador inclui programas de terceiros. As informações de licença ficam nos arquivos distribuídos com eles.
+- A licença do código está no arquivo [LICENSE](LICENSE). Os programas de terceiros podem ter licenças próprias.
