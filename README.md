@@ -2,7 +2,7 @@
 
 Esse é um projeto pessoal que desenvolvi para estudar, praticar e apresentar um pouco do que venho aprendendo em **Java e Node.js**. O Leon Revil é um bot para WhatsApp que usa Node.js para fazer a conexão e uma ponte com Java para processar comandos e algumas funções de mídia.
 
-A ideia deste repositório é compartilhar o projeto para quem quiser **instalar e testar**, conhecer o funcionamento ou baixar o código para **estudar, modificar e versionar por conta própria**. É um projeto independente, feito para aprendizado e apresentação — não é um produto oficial nem uma solução que eu esteja prometendo como pronta para uso em produção.
+A ideia deste repositório é apresentar meu projeto para quem quiser **instalar e testar**, conhecer o funcionamento ou baixar o código para **estudar e executar localmente**. Se você quiser desenvolver uma versão própria, mantenha seu trabalho em uma cópia e em um repositório seus. É um projeto independente, feito para aprendizado e apresentação — não é um produto oficial nem uma solução que eu esteja prometendo como pronta para uso em produção.
 
 ## O que ele faz
 
@@ -65,7 +65,7 @@ O instalador não precisa baixar os runtimes durante a instalação, mas **o bot
 - **Comandos administrativos falham:** verifique se a conta do Leon e quem executa o comando têm as permissões necessárias no grupo.
 - **Recursos de mídia falham:** envie arquivos de teste menores e confira as mensagens do terminal. Nem todo arquivo de imagem ou vídeo é necessariamente compatível.
 
-## Opção 2 — Baixar o código para estudar ou criar sua própria versão
+## Opção 2 — Baixar o código para estudar ou executar localmente
 
 Se a ideia for estudar a implementação, modificar o comportamento ou versionar suas alterações, você pode baixar o código-fonte. Nesse caminho, os runtimes e as ferramentas que vêm dentro do instalador completo **não são instalados automaticamente**.
 
@@ -109,25 +109,13 @@ node index.js
 
 Na primeira execução, siga o mesmo procedimento de autenticação pelo QR Code explicado na Opção 1. Mantenha o terminal aberto enquanto estiver usando o bot; fechar o terminal encerra o processo.
 
-### Estudar e versionar suas alterações com Git
+### Manter seus estudos separados deste repositório
 
-Se clonou o repositório, crie uma branch antes de fazer suas mudanças:
+Este repositório é a apresentação do meu projeto pessoal. As instruções acima servem para baixar o código, estudar e executar uma cópia local; não é necessário enviar alterações para cá.
 
-```powershell
-git checkout -b minha-alteracao
-```
+Se decidir transformar o código em um projeto seu, faça isso em uma cópia própria e mantenha o desenvolvimento no seu próprio repositório.
 
-Depois de editar e testar o código, você pode conferir o que mudou e registrar suas alterações:
-
-```powershell
-git status
-git add src whatsapp-bridge
-git commit -m "Descreve a alteração feita"
-```
-
-Para publicar suas mudanças sem alterar este repositório, crie primeiro um **fork** no GitHub e clone a URL do seu fork. Depois configure a autenticação do GitHub e envie sua branch com `git push -u origin minha-alteracao`. Se estiver apenas estudando, você pode manter suas alterações locais.
-
-**Não versione nem publique** a pasta `whatsapp-bridge\auth-leon`, QR Codes, credenciais, arquivos de sessão, chaves, tokens, logs pessoais ou dados de conversas. A pasta de autenticação é local e deve continuar privada. O `.gitignore` do projeto já exclui alguns arquivos gerados, mas sempre confira o resultado de `git status` antes de fazer commit.
+**Não publique** a pasta `whatsapp-bridge\\auth-leon`, QR Codes, credenciais, arquivos de sessão, chaves, tokens, logs pessoais ou dados de conversas. A pasta de autenticação é local e deve continuar privada. O `.gitignore` do projeto já exclui alguns arquivos gerados, mas sempre confira os arquivos antes de compartilhar sua cópia.
 
 ## Estrutura principal do projeto
 
