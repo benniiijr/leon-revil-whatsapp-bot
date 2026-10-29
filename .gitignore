@@ -65,3 +65,9 @@ logs/
 node_modules/
 build/
 *.bak-*
+# Instalador e scripts de distribuicao (mantidos fora do Git)
+/install.bat
+/install.ps1
+/iniciar-leon.bat
+/uninstall.bat
+/uninstall.ps1
