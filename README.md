@@ -50,7 +50,7 @@ O instalador não precisa baixar os programas durante a instalação, mas o Leon
 
 - Para fechar o bot, vá até a janela do terminal e pressione **Ctrl+C**.
 - Para abrir novamente, use o atalho **Leon Revil**.
-- Os dados de conexão ficam na pasta `whatsapp-bridge\auth-leon), dentro da instalação. Não compartilhe essa pasta nem envie para outras pessoas.
+- Os dados de conexão ficam na pasta `whatsapp-bridge\\auth-leon`, dentro da instalação. Não compartilhe essa pasta nem envie para outras pessoas.
 - Antes de desinstalar, confira se precisa guardar alguma coisa da sua sessão.
 
 ### Se der algum problema
