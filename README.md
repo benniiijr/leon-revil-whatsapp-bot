@@ -125,7 +125,7 @@ git add src whatsapp-bridge
 git commit -m "Descreve a alteração feita"
 ```
 
-Para enviar commits ao seu próprio fork ou repositório remoto, configure a autenticação do GitHub e use `git push` na branch correspondente. Se estiver apenas estudando, você pode manter suas alterações locais.
+Para publicar suas mudanças sem alterar este repositório, crie primeiro um **fork** no GitHub e clone a URL do seu fork. Depois configure a autenticação do GitHub e envie sua branch com `git push -u origin minha-alteracao`. Se estiver apenas estudando, você pode manter suas alterações locais.
 
 **Não versione nem publique** a pasta `whatsapp-bridge\auth-leon`, QR Codes, credenciais, arquivos de sessão, chaves, tokens, logs pessoais ou dados de conversas. A pasta de autenticação é local e deve continuar privada. O `.gitignore` do projeto já exclui alguns arquivos gerados, mas sempre confira o resultado de `git status` antes de fazer commit.
 
