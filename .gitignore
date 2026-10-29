@@ -1,0 +1,67 @@
+### IntelliJ IDEA ###
+.idea/
+*.iml
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+.kotlin/
+
+### Eclipse ###
+.apt_generated/
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache/
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+### Sistema operacional ###
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+### Credenciais e variáveis de ambiente ###
+.env
+.env.*
+!.env.example
+
+### Sessão e autenticação do WhatsApp ###
+auth/
+auth-leon/
+auth_info/
+session/
+sessions/
+creds.json
+app-state-sync-version-*.json
+
+### Arquivos temporários de mídia ###
+temp/
+*.tmp
+
+### Dados locais gerados pelo bot ###
+whatsapp-bridge/services/activity.json
+whatsapp-bridge/services/welcome.json
+whatsapp-bridge/services/antilinkgp.json
+
+### Logs ###
+*.log
+logs/
+
+### Java compilado ###
+*.class
+node_modules/
+build/
+*.bak-*
