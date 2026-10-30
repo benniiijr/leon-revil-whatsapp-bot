@@ -1,11 +1,7 @@
 # Leon Revil
 
-<p align="center">
+<p align="left">
   <img src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Resident_Evil_Requiem_-_Leon_S._Kennedy.jpg" alt="Leon S. Kennedy em Resident Evil Requiem" width="720">
-</p>
-
-<p align="center">
-  <sub>Imagem: Capcom France · <a href="https://commons.wikimedia.org/wiki/File:Resident_Evil_Requiem_-_Leon_S._Kennedy.jpg">Wikimedia Commons</a> · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></sub>
 </p>
 
 Esse é um projeto pessoal meu. Fiz o Leon Revil para praticar Java e Node.js e mostrar um pouco do que venho aprendendo. Ele é um bot de WhatsApp que usa Node.js para se conectar e Java para cuidar de comandos e algumas funções de mídia.
