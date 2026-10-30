@@ -35,7 +35,7 @@ Esse é o jeito mais simples. O instalador já vem com Node.js, Java, dependênc
 1. Entre na página de [Releases do Leon Revil](https://github.com/benniiijr/leon-revil-whatsapp-bot/releases).
 2. Baixe o arquivo **`Leon-Revil-Setup-1.0.0-FULL.exe`**. Se preferir, [clique aqui para baixar a versão 1.0.0](https://github.com/benniiijr/leon-revil-whatsapp-bot/releases/download/v1.0.0/Leon-Revil-Setup-1.0.0-FULL.exe).
 3. O Windows pode mostrar um aviso porque o instalador não tem assinatura digital. Confira se baixou o arquivo da página oficial do projeto e não desative o antivírus para instalar.
-4. Abra o instalador e siga as instruções. O local padrão é `%LOCALAPPDATA%\Programs\Leon Revil`.
+4. Abra o instalador e siga as instruções. O local padrão é `C:\\LeonRevil`. Você pode escolher outro diretório durante a instalação.
 5. Se quiser, marque a opção para criar um atalho na área de trabalho. Também será criado um atalho no menu Iniciar.
 6. No fim da instalação, abra o Leon pelo atalho.
 7. Uma janela de terminal vai aparecer. Na primeira vez, o Leon deve mostrar um QR Code para conectar ao WhatsApp.
@@ -48,10 +48,36 @@ O instalador não precisa baixar os programas durante a instalação, mas o Leon
 
 ### Como fechar e abrir de novo
 
-- Para fechar o bot, vá até a janela do terminal e pressione **Ctrl+C**.
+- Para fechar o bot quando ele foi iniciado pelo atalho, vá até a janela do terminal e pressione **Ctrl+C**.
 - Para abrir novamente, use o atalho **Leon Revil**.
 - Os dados de conexão ficam na pasta `whatsapp-bridge\\auth-leon`, dentro da instalação. Não compartilhe essa pasta nem envie para outras pessoas.
 - Antes de desinstalar, confira se precisa guardar alguma coisa da sua sessão.
+
+### Iniciar automaticamente com o Windows
+
+Depois de conectar o WhatsApp pela primeira vez, você pode configurar o Agendador de Tarefas para iniciar o Leon quando entrar no Windows. Assim, não precisa abrir o atalho manualmente a cada inicialização.
+
+1. Confirme que o Leon já conectou ao WhatsApp pelo menos uma vez e que a sessão foi salva.
+2. Pressione **Win + R**, digite `taskschd.msc` e pressione Enter.
+3. No Agendador de Tarefas, clique em **Criar Tarefa**.
+4. Na aba **Geral**, dê o nome `Leon Revil` e selecione **Executar independentemente de o usuário estar conectado ou não**. O Windows pode solicitar a senha da sua conta.
+5. Na aba **Disparadores**, clique em **Novo...** e escolha **Ao fazer logon**. Se quiser, deixe para qualquer usuário ou selecione sua conta.
+6. Na aba **Ações**, clique em **Novo...** e configure:
+   - **Ação:** Iniciar um programa.
+   - **Programa/script:** caminho completo do arquivo `iniciar-leon.bat`. Na instalação padrão: `C:\\LeonRevil\\iniciar-leon.bat`.
+   - **Iniciar em (opcional):** pasta de instalação. Na instalação padrão: `C:\\LeonRevil`.
+   - Se você escolheu outro diretório durante a instalação, use o caminho correspondente.
+7. Salve a tarefa. Se o Windows solicitar credenciais, informe a senha da conta usada para executar o Leon.
+
+A tarefa será executada em segundo plano quando você entrar no Windows, sem deixar a janela do terminal aberta na área de trabalho. Para conferir, abra o Agendador de Tarefas e veja se a tarefa **Leon Revil** está em execução.
+
+**Atenção:**
+- Faça a primeira conexão pelo atalho normal, com o terminal visível, antes de configurar a inicialização automática. Se a sessão expirar ou o WhatsApp pedir um novo QR Code, inicie o Leon manualmente pelo atalho para conectar novamente.
+- Não abra o atalho enquanto a tarefa automática já estiver executando, para evitar duas instâncias do bot.
+- Para interromper o Leon iniciado pela tarefa, abra o Agendador de Tarefas, selecione **Leon Revil** e clique em **Finalizar**. Para voltar a iniciar manualmente, você pode desabilitar a tarefa.
+- A inicialização automática depende de o computador estar ligado, de você entrar na conta configurada e de haver conexão com a internet.
+
+Se preferir que o terminal apareça, não configure a tarefa em segundo plano: continue usando o atalho **Leon Revil** normalmente.
 
 ### Se der algum problema
 
@@ -88,17 +114,17 @@ Na pasta principal do projeto, execute no PowerShell:
 
 ```powershell
 # Criar a pasta dos arquivos compilados
-New-Item -ItemType Directory -Force .\build\classes
+New-Item -ItemType Directory -Force .\\build\\classes
 
 # Compilar o código Java usando o JDK 21
-$fontes = Get-ChildItem .\src\*.java | ForEach-Object { $_.FullName }
-javac --release 21 -encoding UTF-8 -d .\build\classes $fontes
+$fontes = Get-ChildItem .\\src\\*.java | ForEach-Object { $_.FullName }
+javac --release 21 -encoding UTF-8 -d .\\build\\classes $fontes
 ```
 
 Depois, instale as dependências do Node.js e inicie o bot:
 
 ```powershell
-cd .\whatsapp-bridge
+cd .\\whatsapp-bridge
 npm ci
 node index.js
 ```
@@ -111,7 +137,7 @@ Esse repositório é para apresentar o meu projeto. Você pode baixar o código 
 
 Se quiser fazer sua própria versão, trabalhe em uma cópia sua e guarde o código no seu próprio repositório.
 
-Não compartilhe a pasta `whatsapp-bridge\auth-leon`, QR Codes, senhas, tokens, arquivos de sessão ou dados de conversas. Antes de compartilhar sua cópia, confira também quais arquivos estão incluídos.
+Não compartilhe a pasta `whatsapp-bridge\\auth-leon`, QR Codes, senhas, tokens, arquivos de sessão ou dados de conversas. Antes de compartilhar sua cópia, confira também quais arquivos estão incluídos.
 
 ## Pastas principais
 
